@@ -1,0 +1,16 @@
+package eightpuzzle;
+
+import agent.Heuristic;
+
+public class HeuristicTilesOutOfPlace extends Heuristic<EightPuzzleProblem, EightPuzzleState> {
+
+    public double compute(EightPuzzleState state) {
+        //TODO: heuristica que define o numero de numeros fora do sitio
+        return state.computeTilesOutOfPlace();
+    }
+
+    @Override
+    public String toString() {
+        return "Tiles out of place";
+    }
+}

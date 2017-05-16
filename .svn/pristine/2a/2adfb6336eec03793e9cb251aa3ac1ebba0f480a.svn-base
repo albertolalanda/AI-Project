@@ -1,0 +1,70 @@
+package eightpuzzle;
+
+import agent.Action;
+import agent.Problem;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
+
+public class EightPuzzleProblem extends Problem<EightPuzzleState> {
+    //TODO 
+    private EightPuzzleState goalState;
+    
+    public EightPuzzleProblem(EightPuzzleState initialState ){ //, List<Action> actions) {
+        //Criar lista das pecas
+        super(initialState, new ArrayList<Action>());
+        actions.add(new ActionUp());
+        actions.add(new ActionRight());
+        actions.add(new ActionDown());
+        actions.add(new ActionLeft());
+
+        //TODO: NOTE: preciso disto? o goalstate ja só depende de 1 objeto numa posicao nao de uma matrix inteira
+        this.goalState = new EightPuzzleState((EightPuzzleState.goalMatrix));
+    }
+    
+    @Override
+    public boolean isGoal(EightPuzzleState state) {
+        //NOTE: Adicionei esta verificacao de estado goal
+        //TODO: Projeto basta comparar a posicao do carrinho com a porta
+        int[][] temp = state.getMatrix();
+        for (int i = 0; i < temp.length; i++) {
+            for (int j = 0; j < temp.length; j++) {
+                if(temp[i][j] == 1)//Se for o forklift
+                {
+                    if(j == temp.length-1)//Se a coluna do carro for igual ao máximo de colunas da matriz
+                        return true;
+                    //Apanhei o carro mas  ele ainda nao está no limite da matriz entao vou acabar por aqui
+                    return false;
+                }
+            }
+        }
+        //nunca vai chegar aqui porq existe carro na matriz
+        return false;
+        //return state.equals(goalState);
+    }
+
+    
+    //TODO: NOTE: Este metodo é chamado por todos os algoritmos de procura para criar um novo estado (Nó)
+    //Neste tipo de problema todas as peças mexem-se 
+    @Override
+    public List<EightPuzzleState> executeActions(EightPuzzleState state) {
+        List<EightPuzzleState> successors = new LinkedList<EightPuzzleState>();
+        //Foreach listaPieces
+        for (Action a : actions) {
+            if( a.isValid(state) ){ //primeiro criar clone para nao influenciar logo caso queiramos cancelar
+                EightPuzzleState sucessor = (EightPuzzleState) state.clone();
+                a.execute(sucessor);
+                successors.add(sucessor);
+            }
+        }
+        return successors;
+    }
+
+    @Override
+    public double computePathCost(List<Action> path) {//so para otimizacao não é genérico...
+        return path.size();
+    }
+
+    
+}

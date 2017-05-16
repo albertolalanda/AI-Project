@@ -1,0 +1,16 @@
+package eightpuzzle;
+
+import agent.Heuristic;
+
+public class HeuristicTileDistance extends Heuristic<EightPuzzleProblem, EightPuzzleState>{
+
+    public double compute(EightPuzzleState state){
+        //TODO aqui fica o algoritmo de heuristica que diz a quantidade de pecas fora do sitio
+        return state.computeTileDistance();
+    }
+    
+    @Override
+    public String toString(){
+        return "Tiles distance to final position";
+    }
+}

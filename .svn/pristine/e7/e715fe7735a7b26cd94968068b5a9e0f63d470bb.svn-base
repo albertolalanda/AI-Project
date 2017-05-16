@@ -1,0 +1,44 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package eightpuzzle;
+
+/**
+ *
+ * @author Pedro
+ */
+enum MoveDir{
+    NORTH(-1), SOUTH(1), WEST(-1), EAST(1); //The numbers are to use in incrementing or decrementing the position in the array
+    private final int value;
+    MoveDir(int value){
+        this.value = value;
+    }
+
+    public int getValue() {
+        return value;
+    }    
+}
+public enum Direction {
+        VERTICAL(MoveDir.NORTH, MoveDir.SOUTH), 
+        HORIZONTAL(MoveDir.WEST, MoveDir.EAST);
+        
+    private final MoveDir oneDirec;
+    private final MoveDir secDirec;
+    
+    //This has the Direction 
+    Direction(MoveDir oneDirec, MoveDir secDirec){
+        this.oneDirec = oneDirec;
+        this.secDirec = secDirec;
+    }
+
+    public MoveDir getOneDirec() {
+        return oneDirec;
+    }
+
+    public MoveDir getSecDirec() {
+        return secDirec;
+    }
+    
+}

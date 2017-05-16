@@ -1,0 +1,58 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package eightpuzzle;
+
+import java.util.LinkedList;
+
+
+/**
+ *
+ * @author Pedro
+ */
+public class Piece {
+    //All the positions of the blocks in this piece
+    private LinkedList<Position> listaBlocos;
+    //The direction of all the blocks in this piece
+    private Direction dir;
+
+    //Creates a whole piece with the quantity of the blocks and the direction passed
+    public Piece(Position startingPos, int quant, Direction dir) {
+        this.dir = dir;
+        listaBlocos = new LinkedList<Position>();
+        int lastPosModified = 0;
+        Position nextBlockPos;
+        for (int i = 0; i < quant; i++) {
+            
+            //its going to add position relative to the direction
+            if(dir.equals(Direction.HORIZONTAL)){
+                nextBlockPos = new Position(startingPos.getColumn() + lastPosModified, startingPos.getLine());
+            }else{
+                nextBlockPos = new Position(startingPos.getColumn(), startingPos.getLine() + lastPosModified);
+            }
+            listaBlocos.add(nextBlockPos);
+        }
+    }
+    
+    public boolean moveTo(MoveDir dir){
+        //O movimento tem que pertencer á direcao!
+        for (Direction moveDir : Direction.values()) {
+            if(moveDir.equals(dir)){ //Pertence
+                movePieceTo(dir);
+            }
+        }
+        return false;
+    }
+
+    public LinkedList<Position> getBlocos() {
+        return listaBlocos;
+    }
+
+    private void movePieceTo(MoveDir dir) {
+        //if(dir.equals(dir.))
+    }
+    
+    
+}
