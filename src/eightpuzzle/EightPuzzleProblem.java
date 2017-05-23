@@ -38,27 +38,27 @@ public class EightPuzzleProblem extends Problem<EightPuzzleState> {
         for(Peca peca: state.getListaPecas()){
             if (peca.getTipo() == 1){
                 a = new ActionRight();
-                a.setPosicao(peca.getLinha(), peca.getColuna());
+                a.setPeca(peca);
                 actions.add(a);
                 
                 a = new ActionLeft();
-                a.setPosicao(peca.getLinha(), peca.getColuna());
+                a.setPeca(peca);
                 actions.add(a);
             } else if((peca.getTipo() % 2) == 0){
                 a = new ActionRight();
-                a.setPosicao(peca.getLinha(), peca.getColuna());
+                a.setPeca(peca);
                 actions.add(a);
                 
                 a = new ActionLeft();
-                a.setPosicao(peca.getLinha(), peca.getColuna());
+                a.setPeca(peca);
                 actions.add(a);
             } else if((peca.getTipo() % 2) != 0){
                 a = new ActionUp();
-                a.setPosicao(peca.getLinha(), peca.getColuna());
+                a.setPeca(peca);
                 actions.add(a);
                 
                 a = new ActionDown();
-                a.setPosicao(peca.getLinha(), peca.getColuna());
+                a.setPeca(peca);
                 actions.add(a);
             }
         }

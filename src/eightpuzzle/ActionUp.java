@@ -14,6 +14,6 @@ public class ActionUp extends Action<EightPuzzleState>{
     }
 
     public boolean isValid(EightPuzzleState state){
-        return state.canMoveUp();
+        return state.canMoveUp(peca);
     }
 }

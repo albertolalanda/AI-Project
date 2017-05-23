@@ -22,7 +22,7 @@ public class EightPuzzleState extends State implements Cloneable {
             for (int j = 0; j < matrix.length; j++) {
                 this.matrix[i][j] = matrix[i][j];
                 
-                //TODO: (NOTA) Criar as pecas consuante o seu valor e guardar as suas posicoes/valores
+                //DONE: (NOTA) Criar as pecas consuante o seu valor e guardar as suas posicoes/valores
                 switch (matrix[i][j]) {
                     case 1:  pecas.add(new Peca(new Posicao(i, j), 1));
                              break;
@@ -60,22 +60,69 @@ public class EightPuzzleState extends State implements Cloneable {
 
 
     //TODO: (NOTA) Que peca é que vai perguntar? estes metodos canMove
-    public boolean canMoveRight() {
+    public boolean canMoveRight(Peca peca) {
+        switch (peca.getTipo()) {
+            case 1:  isValidPosition(peca.getLinha(), peca.getColuna() +1);
+                     break;
+            case 2:  isValidPosition(peca.getLinha(), peca.getColuna() +1);
+                   break; 
+            case 4:  if(isValidPosition(peca.getLinha(), peca.getColuna() +1) && isValidPosition(peca.getLinha(), peca.getColuna() +2)){return true;}
+                   break;
+            case 6:  if(isValidPosition(peca.getLinha(), peca.getColuna() +1) && isValidPosition(peca.getLinha(), peca.getColuna() +2) && isValidPosition(peca.getLinha(), peca.getColuna() +3)){return true;}
+                   break;
+            case 8:  if(isValidPosition(peca.getLinha(), peca.getColuna() +1) && isValidPosition(peca.getLinha(), peca.getColuna() +2) && isValidPosition(peca.getLinha(), peca.getColuna() +3) && isValidPosition(peca.getLinha(), peca.getColuna() +4)){return true;}
+                   break;
+            default: return false;
+        }
         return false;
     }
 
-    public boolean canMoveLeft() {
+    public boolean canMoveLeft(Peca peca) {
+        switch (peca.getTipo()) {
+            case 1:  isValidPosition(peca.getLinha(), peca.getColuna() -1);
+                     break;
+            case 2:  isValidPosition(peca.getLinha(), peca.getColuna() -1);
+                   break; 
+            case 4:  if(isValidPosition(peca.getLinha(), peca.getColuna() -1) && isValidPosition(peca.getLinha(), peca.getColuna())){return true;}
+                   break;
+            case 6:  if(isValidPosition(peca.getLinha(), peca.getColuna() -1) && isValidPosition(peca.getLinha(), peca.getColuna()) && isValidPosition(peca.getLinha(), peca.getColuna() +1)){return true;}
+                   break;
+            case 8:  if(isValidPosition(peca.getLinha(), peca.getColuna() -1) && isValidPosition(peca.getLinha(), peca.getColuna()) && isValidPosition(peca.getLinha(), peca.getColuna() +1) && isValidPosition(peca.getLinha(), peca.getColuna() +2)){return true;}
+                   break;
+            default: return false;
+        }
         return false;
     }
     
-    public boolean canMoveDown() {
+    public boolean canMoveDown(Peca peca) {
+        switch (peca.getTipo()) {
+            case 3:  isValidPosition(peca.getLinha()-1, peca.getColuna());
+                   break; 
+            case 5:  if(isValidPosition(peca.getLinha()-1, peca.getColuna()) && isValidPosition(peca.getLinha()-2, peca.getColuna())){return true;}
+                   break;
+            case 7:  if(isValidPosition(peca.getLinha()-1, peca.getColuna()) && isValidPosition(peca.getLinha()-2, peca.getColuna()) && isValidPosition(peca.getLinha()-3, peca.getColuna())){return true;}
+                   break;
+            case 9:  if(isValidPosition(peca.getLinha()-1, peca.getColuna()) && isValidPosition(peca.getLinha()-2, peca.getColuna()) && isValidPosition(peca.getLinha()-3, peca.getColuna()) && isValidPosition(peca.getLinha()-4, peca.getColuna())){return true;}
+                   break;
+            default: return false;
+        }
         return false;
     }
 
-    public boolean canMoveUp() {
+    public boolean canMoveUp(Peca peca) {
+        switch (peca.getTipo()) {
+            case 3:  isValidPosition(peca.getLinha()+1, peca.getColuna());
+                   break; 
+            case 5:  if(isValidPosition(peca.getLinha()+1, peca.getColuna()) && isValidPosition(peca.getLinha(), peca.getColuna())){return true;}
+                   break;
+            case 7:  if(isValidPosition(peca.getLinha()+1, peca.getColuna()) && isValidPosition(peca.getLinha(), peca.getColuna()) && isValidPosition(peca.getLinha()-1, peca.getColuna())){return true;}
+                   break;
+            case 9:  if(isValidPosition(peca.getLinha()+1, peca.getColuna()) && isValidPosition(peca.getLinha(), peca.getColuna()) && isValidPosition(peca.getLinha()-1, peca.getColuna()) && isValidPosition(peca.getLinha()-2, peca.getColuna())){return true;}
+                   break;
+            default: return false;
+        }
         return false;
     }
-
 
     /*
      * Nos metodos move[Down|Up|Right|Left] não há validação(canMove), já foi feita na class EightPuzzelProblem no executeActions().

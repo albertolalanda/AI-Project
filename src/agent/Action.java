@@ -1,10 +1,13 @@
 package agent;
 
+import eightpuzzle.Peca;
+
 
 //TODO: (NOTA) A Acçáo precisa de saber que peça vai mexer Actualmente só está a passar o estado
 public abstract class Action <S extends State>{
     private double cost; // em alguns problemas o custo pode mudar exemplo caminhos que custem mais a percorrer a pe de carro etc neste programa é sempre 1
-
+    protected Peca peca;
+    
     public Action(double cost){
         this.cost = cost;
     }
@@ -20,7 +23,7 @@ public abstract class Action <S extends State>{
         return cost;
     }
 
-    public void setPosicao(int linha, int coluna) {
-        //TODO: 
+    public void setPeca(Peca peca) {
+        this.peca = peca;
     }
 }
