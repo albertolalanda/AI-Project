@@ -27,7 +27,10 @@ public class Peca {
         
     }
 
-    
+    public void setPosicao(Posicao posicao) {
+        this.posicao = posicao;
+    }
+
     public boolean canMoveTo(Posicao pos){
         return false;
     }

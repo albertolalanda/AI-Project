@@ -9,7 +9,7 @@ public class ActionLeft extends Action<EightPuzzleState>{
     }
 
     public void execute(EightPuzzleState state){
-        state.moveLeft();
+        state.moveLeft(peca);
         state.setAction(this);
     }
 

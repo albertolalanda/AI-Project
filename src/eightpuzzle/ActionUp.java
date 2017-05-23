@@ -9,7 +9,7 @@ public class ActionUp extends Action<EightPuzzleState>{
     }
 
     public void execute(EightPuzzleState state){
-        state.moveUp();
+        state.moveUp(peca);
         state.setAction(this);
     }
 
