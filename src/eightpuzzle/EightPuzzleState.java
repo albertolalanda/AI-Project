@@ -25,9 +25,21 @@ public class EightPuzzleState extends State implements Cloneable {
                 switch (matrix[i][j]) {
                     case 1:  pecas.add(new Peca(new Posicao(i, j), 1));
                              break;
-                    case 2:  
+                    case 2:  pecas.add(new Peca(new Posicao(i, j), 2));
                              break;
-                    default: 
+                    case 3:  pecas.add(new Peca(new Posicao(i, j), 3));
+                             break;
+                    case 4:  pecas.add(new Peca(new Posicao(i, j), 4));
+                             break;
+                    case 5:  pecas.add(new Peca(new Posicao(i, j), 5));
+                             break;
+                    case 6:  pecas.add(new Peca(new Posicao(i, j), 6));
+                             break;
+                    case 7:  pecas.add(new Peca(new Posicao(i, j), 7));
+                             break;
+                    case 8:  pecas.add(new Peca(new Posicao(i, j), 8));
+                             break;
+                    case 9:  pecas.add(new Peca(new Posicao(i, j), 9));
                              break;
                 }
 
