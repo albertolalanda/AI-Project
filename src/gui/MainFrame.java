@@ -114,7 +114,7 @@ public class MainFrame extends JFrame {
 
     private void configureTabel(JTable table) {
         puzzleTableModel = new PuzzleTableModel(agent.getEnvironment());
-        //table.setEnabled(false); // remover onclick da tabela. remove qualquer input do user na tabela
+        table.setEnabled(false); // remover onclick da tabela. remove qualquer input do user na tabela
         tablePuzzle.setRowMargin(0);
         tablePuzzle.getColumnModel().setColumnMargin(0);
         tablePuzzle.setModel(puzzleTableModel);

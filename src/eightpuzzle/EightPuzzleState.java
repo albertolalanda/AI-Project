@@ -14,6 +14,7 @@ public class EightPuzzleState extends State implements Cloneable {
 
     public EightPuzzleState(int[][] matrix) {
         this.matrix = new int[matrix.length][matrix.length];
+        this.pecas = new ArrayList<Peca>();
         
         //TODO: (NOTA) Guardar as peças para poder retornar para a class EightPuzzelProblem
         
