@@ -6,41 +6,45 @@
 package eightpuzzle;
 
 import agent.Action;
+import java.util.Arrays;
 import java.util.LinkedList;
-
-
 /**
  *
  * @author Pedro
  */
 public class Peca {
-    //[Lalanda]
-    // horizontal true vertical false
-    private boolean direcao;
+    private Posicao posicao;
+    private int tipo;
+    
 
     //TODO: (Peca) criar a peca preciso da sua posicao da quantidade de blocos que tem e o seu valor
-    public Peca(Posicao startingPos, int quant) {
-        
+    public Peca(Posicao startingPos, int tipo) {
         //TODO: (PECA) Pecas horizontais sao pares Verticais sao impares! guarda a direcao delas para saber que accoes podem executar
+        this.tipo = tipo;
+        this.posicao = startingPos;
+        
         // Guardar as posicoes ou só a cabeça da peca?
+        
     }
+
     
     public boolean canMoveTo(Posicao pos){
         return false;
     }
-    
-    /*
-    public ?? getBlocos() {
-        return listaBlocos;
+
+    public int getLinha() {
+        return posicao.getLinha();
     }
     
+    public int getColuna() {
+        return posicao.getColuna();
+    }
 
     private void moveTo(Posicao pos) {
-        //se fazes alteracoes ás variavais da posicao nao esquecer que a matrix tb precisa do update!
+        this.posicao = pos;
     }
-    */  
     
-    
-    
-    
+    public int getTipo() {
+        return tipo;
+    }
 }

@@ -10,15 +10,27 @@ public class EightPuzzleState extends State implements Cloneable {
     private int[][] matrix;
     
     private int colunaCarro;
+    private ArrayList<Peca> pecas;
 
     public EightPuzzleState(int[][] matrix) {
         this.matrix = new int[matrix.length][matrix.length];
         
         //TODO: (NOTA) Guardar as peças para poder retornar para a class EightPuzzelProblem
+        
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix.length; j++) {
                 this.matrix[i][j] = matrix[i][j];
+                
                 //TODO: (NOTA) Criar as pecas consuante o seu valor e guardar as suas posicoes/valores
+                switch (matrix[i][j]) {
+                    case 1:  pecas.add(new Peca(new Posicao(i, j), 1));
+                             break;
+                    case 2:  
+                             break;
+                    default: 
+                             break;
+                }
+
             }
         }
     }
@@ -148,5 +160,10 @@ public class EightPuzzleState extends State implements Cloneable {
         for (EightPuzzleListener listener : listeners) {
             listener.puzzleChanged(null);
         }
+    }
+    
+    //[Lalanda]
+    public Iterable<Peca> getListaPecas() {
+        return pecas;
     }
 }

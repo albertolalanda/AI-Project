@@ -19,4 +19,8 @@ public abstract class Action <S extends State>{
     public double getCost(){
         return cost;
     }
+
+    public void setPosicao(int linha, int coluna) {
+        //TODO: 
+    }
 }

@@ -14,11 +14,6 @@ public class EightPuzzleProblem extends Problem<EightPuzzleState> {
     public EightPuzzleProblem(EightPuzzleState initialState ){ //, List<Action> actions) {
         //Criar lista das pecas
         super(initialState, new ArrayList<Action>());
-        actions.add(new ActionUp());
-        actions.add(new ActionRight());
-        actions.add(new ActionDown());
-        actions.add(new ActionLeft());
-        
     }
     //TODO: (NOTA) Basta verificar se a coluna do carro é igual á ultima coluna da matriz (state.getPosDoCarro()?)
     @Override
@@ -37,11 +32,42 @@ public class EightPuzzleProblem extends Problem<EightPuzzleState> {
     @Override
     public List<EightPuzzleState> executeActions(EightPuzzleState state) {
         List<EightPuzzleState> successors = new LinkedList<EightPuzzleState>();
+        Action a;
+        actions.clear();
         //falta código..
-            for (Action a : actions) {
-                if( a.isValid(state) ){ //Este if pode ficar no loop das peças para não preencher a lista actions com movimentos inválidos(menos iterações)
+        for(Peca peca: state.getListaPecas()){
+            if (peca.getTipo() == 1){
+                a = new ActionRight();
+                a.setPosicao(peca.getLinha(), peca.getColuna());
+                actions.add(a);
+                
+                a = new ActionLeft();
+                a.setPosicao(peca.getLinha(), peca.getColuna());
+                actions.add(a);
+            } else if((peca.getTipo() % 2) == 0){
+                a = new ActionRight();
+                a.setPosicao(peca.getLinha(), peca.getColuna());
+                actions.add(a);
+                
+                a = new ActionLeft();
+                a.setPosicao(peca.getLinha(), peca.getColuna());
+                actions.add(a);
+            } else if((peca.getTipo() % 2) != 0){
+                a = new ActionUp();
+                a.setPosicao(peca.getLinha(), peca.getColuna());
+                actions.add(a);
+                
+                a = new ActionDown();
+                a.setPosicao(peca.getLinha(), peca.getColuna());
+                actions.add(a);
+            }
+        }
+        
+        
+            for (Action a2 : actions) {
+                if( a2.isValid(state) ){ //Este if pode ficar no loop das peças para não preencher a lista actions com movimentos inválidos(menos iterações)
                     EightPuzzleState sucessor = (EightPuzzleState) state.clone();
-                    a.execute(sucessor);
+                    a2.execute(sucessor);
                     successors.add(sucessor);
                 }
             }
