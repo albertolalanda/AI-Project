@@ -30,7 +30,7 @@ public class EightPuzzleState extends State implements Cloneable {
                              break;
                     case 3:  pecas.add(new Peca(new Posicao(i, j), 3));
                              break;
-                    case 4:  pecas.add(new Peca(new Posicao(i, j), 4));
+                    case 4:  pecas.add(new Peca(new Posicao(i, j), 4)); // TODO: PROXIMO 4 NAO ADICIONAR
                              break;
                     case 5:  pecas.add(new Peca(new Posicao(i, j), 5));
                              break;
@@ -129,19 +129,22 @@ public class EightPuzzleState extends State implements Cloneable {
      * Saber que peça quer mover e actualizar na matriz
      */
     
-    public void moveUp() {
+    // modificar a peca na matriz e atualizar na lista de pecas
+    public void moveUp(Peca peca) {
+        
+        matrix[peca.getLinha()][peca.getColuna()] = 0;
+        peca.setPosicao(new Posicao(peca.getLinha()+1, peca.getColuna()));
+    }
+
+    public void moveRight(Peca peca) {
         
     }
 
-    public void moveRight() {
+    public void moveDown(Peca peca) {
         
     }
 
-    public void moveDown() {
-        
-    }
-
-    public void moveLeft() {
+    public void moveLeft(Peca peca) {
         
     }
 
