@@ -15,10 +15,10 @@ public class EightPuzzleProblem extends Problem<EightPuzzleState> {
         //Criar lista das pecas
         super(initialState, new ArrayList<Action>());
     }
-    //TODO: (NOTA) Basta verificar se a coluna do carro é igual á ultima coluna da matriz (state.getPosDoCarro()?)
+    //DONE: (NOTA) Basta verificar se a coluna do carro é igual á ultima coluna da matriz (state.getPosDoCarro()?)
     @Override
     public boolean isGoal(EightPuzzleState state) {
-        return false;
+        return state.getColunaCarro() == state.getNumColumns();
     }
 
     

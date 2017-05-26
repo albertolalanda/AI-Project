@@ -9,7 +9,7 @@ public class EightPuzzleState extends State implements Cloneable {
     
     private int[][] matrix;
     
-    private int linhaCarro;  //Isto estava colunaCarro, mas é sempre uma linha...
+    private int colunaCarro;  //Mas a linha do carro é sempre a mesma a coluna é que muda...
     private ArrayList<Peca> pecas;
     private ArrayList<Posicao> notStartingPos;
     private boolean found=false;
@@ -28,6 +28,7 @@ public class EightPuzzleState extends State implements Cloneable {
                 //DONE: (NOTA) Criar as pecas consuante o seu valor e guardar as suas posicoes/valores
                 switch (matrix[i][j]) {
                     case 1:  pecas.add(new Peca(new Posicao(i, j), 1));
+                             colunaCarro =  j;
                              break;
                     case 2:  pecas.add(new Peca(new Posicao(i, j), 2));
                              break;
@@ -120,6 +121,10 @@ public class EightPuzzleState extends State implements Cloneable {
             System.out.println(p.getLinha() + "," + p.getColuna());
         }
         
+    }
+
+    public int getColunaCarro() {
+        return colunaCarro;
     }
     
     //NOTE: adicionei este getter para poder no isGoal verificar o estado da matrix
