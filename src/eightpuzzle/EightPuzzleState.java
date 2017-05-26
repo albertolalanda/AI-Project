@@ -9,13 +9,16 @@ public class EightPuzzleState extends State implements Cloneable {
     
     private int[][] matrix;
     
-    private int colunaCarro;
+    private int linhaCarro;  //Isto estava colunaCarro, mas é sempre uma linha...
     private ArrayList<Peca> pecas;
+    private ArrayList<Posicao> notStartingPos;
+    private boolean found=false;
 
     public EightPuzzleState(int[][] matrix) {
         this.matrix = new int[matrix.length][matrix.length];
         this.pecas = new ArrayList<Peca>();
-        
+        this.notStartingPos = new ArrayList<Posicao>();
+        notStartingPos.add(new Posicao(-1,-1));
         //TODO: (NOTA) Guardar as peças para poder retornar para a class EightPuzzelProblem
         
         for (int i = 0; i < matrix.length; i++) {
@@ -30,22 +33,93 @@ public class EightPuzzleState extends State implements Cloneable {
                              break;
                     case 3:  pecas.add(new Peca(new Posicao(i, j), 3));
                              break;
-                    case 4:  pecas.add(new Peca(new Posicao(i, j), 4)); // TODO: PROXIMO 4 NAO ADICIONAR
+                    case 4:  for(int k = 0; k < notStartingPos.size(); k++){
+                                if(notStartingPos.get(k).equals(new Posicao(i,j))){
+                                    System.out.println("Found a 4");
+                                    found=true;
+                                }
+                             }
+                             if(!found){
+                                pecas.add(new Peca(new Posicao(i, j), 4));
+                                notStartingPos.add(new Posicao(i, j+1));
+                             }
+                             found=false;
                              break;
-                    case 5:  pecas.add(new Peca(new Posicao(i, j), 5));
+                    case 5:  for(int k = 0; k < notStartingPos.size(); k++){
+                                if(notStartingPos.get(k).equals(new Posicao(i,j))){
+                                    System.out.println("Found a 5");
+                                    found=true;
+                                }
+                             }
+                             if(!found){
+                                pecas.add(new Peca(new Posicao(i, j), 5));
+                                notStartingPos.add(new Posicao(i+1, j));
+                             }
+                             found=false;
                              break;
-                    case 6:  pecas.add(new Peca(new Posicao(i, j), 6));
+                    case 6:  for(int k = 0; k < notStartingPos.size(); k++){
+                                if(notStartingPos.get(k).equals(new Posicao(i,j))){
+                                    System.out.println("Found a 6");
+                                    found=true;
+                                }
+                             }
+                             if(!found){
+                                pecas.add(new Peca(new Posicao(i, j), 6));
+                                notStartingPos.add(new Posicao(i, j+1));
+                                notStartingPos.add(new Posicao(i, j+2));
+                             }
+                             found=false;
                              break;
-                    case 7:  pecas.add(new Peca(new Posicao(i, j), 7));
+                    case 7:  for(int k = 0; k < notStartingPos.size(); k++){
+                                if(notStartingPos.get(k).equals(new Posicao(i,j))){
+                                    System.out.println("Found a 7");
+                                    found=true;
+                                }
+                             }
+                             if(!found){
+                                pecas.add(new Peca(new Posicao(i, j), 7));
+                                notStartingPos.add(new Posicao(i+1, j));
+                                notStartingPos.add(new Posicao(i+2, j));
+                             }
+                             found=false;
                              break;
-                    case 8:  pecas.add(new Peca(new Posicao(i, j), 8));
+                    case 8:  for(int k = 0; k < notStartingPos.size(); k++){
+                                if(notStartingPos.get(k).equals(new Posicao(i,j))){
+                                    System.out.println("Found a 8");
+                                    found=true;
+                                }
+                             }
+                             if(!found){
+                                pecas.add(new Peca(new Posicao(i, j), 8));
+                                notStartingPos.add(new Posicao(i, j+1));
+                                notStartingPos.add(new Posicao(i, j+2));
+                                notStartingPos.add(new Posicao(i, j+3));
+                             }
+                             found=false;
                              break;
-                    case 9:  pecas.add(new Peca(new Posicao(i, j), 9));
+                    case 9:  for(int k = 0; k < notStartingPos.size(); k++){
+                                if(notStartingPos.get(k).equals(new Posicao(i,j))){
+                                    System.out.println("Found a 9");
+                                    found=true;
+                                }
+                             }
+                             if(!found){
+                                pecas.add(new Peca(new Posicao(i, j), 9));
+                                notStartingPos.add(new Posicao(i+1, j));
+                                notStartingPos.add(new Posicao(i+2, j));
+                                notStartingPos.add(new Posicao(i+3, j));
+                             }
+                             found=false;
                              break;
                 }
 
             }
         }
+        //System.out.println(pecas);
+        for(Posicao p:notStartingPos){
+            System.out.println(p.getLinha() + "," + p.getColuna());
+        }
+        
     }
     
     //NOTE: adicionei este getter para poder no isGoal verificar o estado da matrix

@@ -31,7 +31,7 @@ public class Peca {
         this.posicao = posicao;
     }
 
-    public boolean canMoveTo(Posicao pos){
+    public boolean canMoveTo(Posicao pos){ //TODO: Probably
         return false;
     }
 
