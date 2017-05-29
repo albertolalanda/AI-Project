@@ -25,38 +25,35 @@ public class Peca {
         //TODO: (PECA) Pecas horizontais sao pares Verticais sao impares! guarda a direcao delas para saber que accoes podem executar
         this.tipo = tipo;
         this.posicao = startingPos;
+        if((tipo%2)==0){
+            horizontal=true;
+        } else {
+            horizontal=false;
+        }
         switch (tipo){
             case 2:
                 size=1;
-                horizontal=true;
                 break;
             case 3:
                 size=1;
-                horizontal=false;
                 break;
             case 4:
                 size=2;
-                horizontal=true;
                 break;
             case 5:
                 size=2;
-                horizontal=false;
                 break;
             case 6:
                 size=3;
-                horizontal=true;
                 break;
             case 7:
                 size=3;
-                horizontal=false;
                 break;
             case 8:
                 size=4;
-                horizontal=true;
                 break;
             case 9:
                 size=4;
-                horizontal=false;
                 break;
         }
         
@@ -69,7 +66,7 @@ public class Peca {
     }
 
     public boolean canMoveTo(Posicao pos){ //TODO: Probably
-        return false;
+        return true;
     }
 
     public int getLinha() {
