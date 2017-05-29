@@ -6,15 +6,18 @@
 package eightpuzzle;
 
 import agent.Action;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
-/**
- *
- * @author Pedro
- */
+
+
 public class Peca {
     private Posicao posicao;
     private int tipo;
+    // Added:
+    private int size;
+    private boolean horizontal;
+    private ArrayList<Posicao> posicoes;
     
 
     //TODO: (Peca) criar a peca preciso da sua posicao da quantidade de blocos que tem e o seu valor
@@ -22,6 +25,40 @@ public class Peca {
         //TODO: (PECA) Pecas horizontais sao pares Verticais sao impares! guarda a direcao delas para saber que accoes podem executar
         this.tipo = tipo;
         this.posicao = startingPos;
+        switch (tipo){
+            case 2:
+                size=1;
+                horizontal=true;
+                break;
+            case 3:
+                size=1;
+                horizontal=false;
+                break;
+            case 4:
+                size=2;
+                horizontal=true;
+                break;
+            case 5:
+                size=2;
+                horizontal=false;
+                break;
+            case 6:
+                size=3;
+                horizontal=true;
+                break;
+            case 7:
+                size=3;
+                horizontal=false;
+                break;
+            case 8:
+                size=4;
+                horizontal=true;
+                break;
+            case 9:
+                size=4;
+                horizontal=false;
+                break;
+        }
         
         // Guardar as posicoes ou só a cabeça da peca?
         

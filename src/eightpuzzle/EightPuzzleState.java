@@ -216,15 +216,18 @@ public class EightPuzzleState extends State implements Cloneable {
     }
 
     public void moveRight(Peca peca) {
-        
+        matrix[peca.getLinha()][peca.getColuna()] = 0;
+        peca.setPosicao(new Posicao(peca.getLinha(), peca.getColuna()+1));
     }
 
     public void moveDown(Peca peca) {
-        
+        matrix[peca.getLinha()][peca.getColuna()] = 0;
+        peca.setPosicao(new Posicao(peca.getLinha()-11, peca.getColuna()));
     }
 
     public void moveLeft(Peca peca) {
-        
+        matrix[peca.getLinha()][peca.getColuna()] = 0;
+        peca.setPosicao(new Posicao(peca.getLinha(), peca.getColuna()-1));
     }
 
     public int getNumLines() {
