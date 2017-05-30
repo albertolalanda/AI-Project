@@ -24,7 +24,7 @@ public class ImageLoader {
      * The singleton
      */
     private static final ImageLoader loader = new ImageLoader();
-    
+
     /**
      * Private constructor so that no external entities may create ImageLoaders.
      */

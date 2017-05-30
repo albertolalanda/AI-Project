@@ -5,10 +5,7 @@
  */
 package eightpuzzle;
 
-/**
- *
- * @author Pedro
- */
+
 class Posicao {
     //TODO: Guardar a linha e coluna
     
