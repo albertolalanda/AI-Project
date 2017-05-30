@@ -128,7 +128,6 @@ public class MainFrame extends JFrame {
     }
 
     public void buttonInitialState_ActionPerformed(ActionEvent e) {
-        //TODO: (FICHEIRO) AQUI LE O FICHEIRO
         JFileChooser fc = new JFileChooser(new java.io.File("."));
         try {
             if (fc.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {

@@ -40,7 +40,6 @@ public class EightPuzzleProblem extends Problem<EightPuzzleState> {
                 a = new ActionRight();
                 a.setPeca(peca);
                 actions.add(a);
-                
                 a = new ActionLeft();
                 a.setPeca(peca);
                 actions.add(a);
@@ -48,7 +47,6 @@ public class EightPuzzleProblem extends Problem<EightPuzzleState> {
                 a = new ActionRight();
                 a.setPeca(peca);
                 actions.add(a);
-                
                 a = new ActionLeft();
                 a.setPeca(peca);
                 actions.add(a);
@@ -56,14 +54,12 @@ public class EightPuzzleProblem extends Problem<EightPuzzleState> {
                 a = new ActionUp();
                 a.setPeca(peca);
                 actions.add(a);
-                
                 a = new ActionDown();
                 a.setPeca(peca);
                 actions.add(a);
             }
         }
-        
-        
+
             for (Action a2 : actions) {
                 if( a2.isValid(state) ){ //Este if pode ficar no loop das peças para não preencher a lista actions com movimentos inválidos(menos iterações)
                     EightPuzzleState sucessor = (EightPuzzleState) state.clone();
