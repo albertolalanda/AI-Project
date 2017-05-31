@@ -76,4 +76,10 @@ public class Peca {
     public int getTipo() {
         return tipo;
     }
+
+    public Posicao getPosicao() {
+        return posicao;
+    }
+    
+    
 }

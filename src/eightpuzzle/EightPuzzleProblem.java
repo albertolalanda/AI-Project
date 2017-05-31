@@ -18,7 +18,7 @@ public class EightPuzzleProblem extends Problem<EightPuzzleState> {
     //DONE: (NOTA) Basta verificar se a coluna do carro é igual á ultima coluna da matriz (state.getPosDoCarro()?)
     @Override
     public boolean isGoal(EightPuzzleState state) {
-        return state.getColunaCarro() == state.getNumColumns();
+        return state.getColunaCarro() == state.getNumColumns()-1;
     }
 
     
@@ -36,21 +36,14 @@ public class EightPuzzleProblem extends Problem<EightPuzzleState> {
         actions.clear();
         //falta código..
         for(Peca peca: state.getListaPecas()){
-            if (peca.getTipo() == 1){
+            if (peca.getTipo() == 1 || peca.getTipo() % 2 == 0){
                 a = new ActionRight();
                 a.setPeca(peca);
                 actions.add(a);
                 a = new ActionLeft();
                 a.setPeca(peca);
                 actions.add(a);
-            } else if((peca.getTipo() % 2) == 0){
-                a = new ActionRight();
-                a.setPeca(peca);
-                actions.add(a);
-                a = new ActionLeft();
-                a.setPeca(peca);
-                actions.add(a);
-            } else if((peca.getTipo() % 2) != 0){
+            } else{
                 a = new ActionUp();
                 a.setPeca(peca);
                 actions.add(a);
@@ -63,7 +56,10 @@ public class EightPuzzleProblem extends Problem<EightPuzzleState> {
             for (Action a2 : actions) {
                 if( a2.isValid(state) ){ //Este if pode ficar no loop das peças para não preencher a lista actions com movimentos inválidos(menos iterações)
                     EightPuzzleState sucessor = (EightPuzzleState) state.clone();
+                    //System.out.println(a2.getPeca().getLinha()+"-"+a2.getPeca().getColuna()+a2);
+                    //System.out.println("a"+sucessor);
                     a2.execute(sucessor);
+                    //System.out.println("d"+sucessor);
                     successors.add(sucessor);
                 }
             }

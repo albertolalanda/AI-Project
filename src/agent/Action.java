@@ -23,6 +23,12 @@ public abstract class Action <S extends State>{
         return cost;
     }
 
+    public Peca getPeca() {
+        return peca;
+    }
+    
+    
+
     public void setPeca(Peca peca) {
         this.peca = peca;
     }

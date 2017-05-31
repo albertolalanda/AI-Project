@@ -34,7 +34,7 @@ import searchmethods.SearchMethod;
 public class MainFrame extends JFrame {
 
     
-    private int[][] initialMatrix = {{0, 0, 0, 0, 4, 4}, {0, 0, 0, 0, 0, 0}, {5, 0, 0, 0, 0, 0}, {5, 0, 0, 0, 7, 0}, {1, 0, 0, 0, 7, 0}, {6, 6, 6, 0, 7, 0}};
+    private int[][] initialMatrix = {{0, 0, 0, 0,0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 7, 0}, {1, 0, 0, 0, 7, 0}, {6, 6, 6, 0, 7, 0}};
     private EightPuzzleAgent agent = new EightPuzzleAgent(new EightPuzzleState(initialMatrix));
     private JComboBox comboBoxSearchMethods;
     private JComboBox comboBoxHeuristics;

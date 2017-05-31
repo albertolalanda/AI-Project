@@ -25,6 +25,15 @@ class Posicao {
     public int getColuna() {
         return coluna;
     }
+
+    public void setColuna(int coluna) {
+        this.coluna = coluna;
+    }
+
+    public void setLinha(int linha) {
+        this.linha = linha;
+    }
+    
     
     @Override
     public boolean equals(Object other) {
@@ -36,7 +45,7 @@ class Posicao {
 
         // Custom equality check here.
         return (this.linha == that.linha)
-            && (this.coluna == that.coluna);
+            && (this.coluna == that.coluna) ;
     }
 
     @Override
