@@ -431,4 +431,41 @@ public class EightPuzzleState extends State implements Cloneable {
         h = 5 - colunaCarro;
         return h;
     }
+    
+    public double computeNumberOfPiecesInTheWay() {
+       double h = 0;
+       for (int j = colunaCarro; j < matrix.length; j++) {
+           switch (matrix[linhaCarro][j]) {
+               case 2:
+                   h++;
+                   break;
+               case 3:
+                   h++;
+                   break;
+               case 4:
+                   h++;
+                   j++;
+                   break;
+               case 5:
+                   h++;
+                   break;
+               case 6:
+                   h++;
+                   j=j+2;
+                   break;
+               case 7:
+                   h++;
+                   break;
+               case 8:
+                   h++;
+                   j=j+3;
+                   break;
+               case 9:
+                   h++;
+                   break;
+           }
+
+       }
+       return h;      
+    }
 }
