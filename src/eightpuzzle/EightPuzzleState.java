@@ -10,6 +10,7 @@ public class EightPuzzleState extends State implements Cloneable {
     private int[][] matrix;
 
     private int colunaCarro;  //Mas a linha do carro é sempre a mesma a coluna é que muda...
+    private int linhaCarro;  //Mas a linha do carro é sempre a mesma a coluna é que muda...
     private ArrayList<Peca> pecas;
     private ArrayList<Posicao> notStartingPos;
     private boolean found = false;
@@ -29,6 +30,7 @@ public class EightPuzzleState extends State implements Cloneable {
                     case 1:
                         pecas.add(new Peca(new Posicao(i, j), 1));
                         colunaCarro = j;
+                        linhaCarro = i;
                         break;
                     case 2:
                         pecas.add(new Peca(new Posicao(i, j), 2));
@@ -124,7 +126,7 @@ public class EightPuzzleState extends State implements Cloneable {
 
             }
         }
-     /*   //System.out.println(pecas);
+        /*System.out.println(pecas);
         for (Peca p : pecas) {
             System.out.println(p.getLinha() + "," + p.getColuna());
         }
@@ -153,28 +155,28 @@ public class EightPuzzleState extends State implements Cloneable {
         int coluna = peca.getColuna();
         switch (peca.getTipo()) {
             case 1:
-                if (isValidPosition(linha, coluna + 1) && isValidMove(linha, coluna + 1)) {
+                if (isValidPosition(linha, coluna + 1) && isValidMove(linha, coluna + 1, peca)) {
                     return true;
                 }
                 break;
             case 2:
-                if (isValidPosition(linha, coluna + 1) && isValidMove(linha, coluna + 1)) {
+                if (isValidPosition(linha, coluna + 1) && isValidMove(linha, coluna + 1, peca)) {
                     return true;
                 }
                 break;
             case 4:
-                if (isValidPosition(linha, coluna + 2) && isValidMove(linha, coluna + 2)) {
+                if (isValidPosition(linha, coluna + 2) && isValidMove(linha, coluna + 2, peca)) {
                     return true;
                 }
                 break;
             case 6:
-                if (isValidPosition(linha, coluna + 3) && isValidMove(linha, coluna + 3)) {
+                if (isValidPosition(linha, coluna + 3) && isValidMove(linha, coluna + 3, peca)) {
                     //System.out.println(isValidPosition(linha, coluna + 3) + "-------------------------------------------------------" + isValidMove(linha, coluna + 3) + matrix[linha][coluna+3]);
                     return true;
                 }
                 break;
             case 8:
-                if (isValidPosition(linha, coluna + 4) && isValidMove(linha, coluna + 4)) {
+                if (isValidPosition(linha, coluna + 4) && isValidMove(linha, coluna + 4, peca)) {
                     return true;
                 }
         }
@@ -185,7 +187,7 @@ public class EightPuzzleState extends State implements Cloneable {
         //System.out.println("Can Left(" + peca.getLinha() + "," + peca.getColuna() + ")");
         int linha = peca.getLinha();
         int coluna = peca.getColuna();
-        return isValidPosition(linha, coluna - 1) && isValidMove(linha, coluna - 1);
+        return isValidPosition(linha, coluna - 1) && isValidMove(linha, coluna - 1, peca);
     }
 
     public boolean canMoveDown(Peca peca) {
@@ -194,22 +196,22 @@ public class EightPuzzleState extends State implements Cloneable {
         int coluna = peca.getColuna();
         switch (peca.getTipo()) {
             case 3:
-                if (isValidPosition(linha + 1, coluna) && isValidMove(linha + 1, coluna)) {
+                if (isValidPosition(linha + 1, coluna) && isValidMove(linha + 1, coluna, peca)) {
                     return true;
                 }
                 break;
             case 5:
-                if (isValidPosition(linha + 2, coluna) && isValidMove(linha + 2, coluna)) {
+                if (isValidPosition(linha + 2, coluna) && isValidMove(linha + 2, coluna, peca)) {
                     return true;
                 }
                 break;
             case 7:
-                if (isValidPosition(linha + 3, coluna) && isValidMove(linha + 3, coluna)) {
+                if (isValidPosition(linha + 3, coluna) && isValidMove(linha + 3, coluna, peca)) {
                     return true;
                 }
                 break;
             case 9:
-                if (isValidPosition(linha + 4, coluna) && isValidMove(linha + 4, coluna)) {
+                if (isValidPosition(linha + 4, coluna) && isValidMove(linha + 4, coluna, peca)) {
                     return true;
                 }
         }
@@ -220,7 +222,7 @@ public class EightPuzzleState extends State implements Cloneable {
         //System.out.println("Can Up(" + peca.getLinha() + "," + peca.getColuna() + ")");
         int linha = peca.getLinha();
         int coluna = peca.getColuna();
-        return isValidPosition(linha - 1, coluna) && isValidMove(linha - 1, coluna);
+        return isValidPosition(linha - 1, coluna) && isValidMove(linha - 1, coluna, peca);
     }
 
     /*
@@ -354,8 +356,12 @@ public class EightPuzzleState extends State implements Cloneable {
         return (line >= 0 && line < matrix.length && column >= 0 && column < matrix[0].length);
     }
 
-    public boolean isValidMove(int line, int column) {
-        return matrix[line][column] == 0;
+    public boolean isValidMove(int line, int column, Peca peca) {
+        if(line==linhaCarro && column==5 && peca.getTipo()!=1){
+            return false;
+        } else {
+            return matrix[line][column] == 0;
+        }
     }
 
     @Override

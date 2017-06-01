@@ -15,37 +15,33 @@ public class IDAStarSearch extends InformedSearch {
 
     @Override
     public Solution search(Problem problem) {
-        
-        statistics.reset();
+        statistics.reset();        
         stopped = false;
-        Solution solution;
-        
         this.heuristic = problem.getHeuristic();
         limit = heuristic.compute(problem.getInitialState());
+        
+        Solution solution;
         do {
             solution = graphSearch(problem);
         } while (solution == null);
-        
+
         return solution;
     }
 
     @Override
     protected Solution graphSearch(Problem problem) {
-        
         newLimit = Double.POSITIVE_INFINITY;
         frontier.clear();
         frontier.add(new Node(problem.getInitialState()));
-        
-        while(!frontier.isEmpty() && !stopped){
+
+        while (!frontier.isEmpty() && !stopped) {
             Node n = frontier.poll();
-            if(problem.isGoal(n.getState())){
+            if (problem.isGoal(n.getState())) {
                 return new Solution(problem, n);
             }
-            
             List<State> successors = problem.executeActions(n.getState());
             addSuccessorsToFrontier(successors, n);
             computeStatistics(successors.size());
-            
         }
         limit = newLimit;
         return null;
@@ -54,21 +50,21 @@ public class IDAStarSearch extends InformedSearch {
     @Override
     public void addSuccessorsToFrontier(List<State> successors, Node parent) {
         
-        for (State s : successors) {
-            double g = parent.getG() + s.getAction().getCost();
-            if( !frontier.containsState(s)){
-                double f = g + heuristic.compute(s);
-                if(f <= limit){
-                    Node n = new Node(s, parent, g, f);
-                    if( !n.isCycle()){
-                        frontier.add(n);
+        for (State est : successors) {
+            double g = parent.getG() + est.getAction().getCost();
+            if (!frontier.containsState(est)) {
+                double f = g + heuristic.compute(est);
+                if (f <= limit) {
+                    Node node = new Node(est, parent, g, f);
+                    if (!node.isCycle()) {
+                        frontier.add(node);
                     }
-                }else{
+                } else {
                     newLimit = Math.min(newLimit, f);
                 }
-            }else if( frontier.getNode(s).getG() > g ){
-                frontier.removeNode(s);
-                frontier.add( new Node(s, parent, g, g + heuristic.compute(s)));
+            } else if (frontier.getNode(est).getG() > g) {
+                frontier.removeNode(est);
+                frontier.add(new Node(est, parent, g, g + heuristic.compute(est)));
             }
         }
     }
