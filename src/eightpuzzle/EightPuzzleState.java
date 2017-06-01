@@ -419,4 +419,10 @@ public class EightPuzzleState extends State implements Cloneable {
     public Iterable<Peca> getListaPecas() {
         return pecas;
     }
+
+    public double computeTileDistance() {
+        double h = 0;
+        h = 5 - colunaCarro;
+        return h;
+    }
 }
