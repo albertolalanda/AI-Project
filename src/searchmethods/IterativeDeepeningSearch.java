@@ -19,6 +19,7 @@ public class IterativeDeepeningSearch extends DepthFirstSearch {
      */    
     
     private int limit;
+    private boolean f = true; // search method alterado para parar quando expandir todos os nodes
 
     @Override
     public Solution search(Problem problem) {
@@ -29,7 +30,7 @@ public class IterativeDeepeningSearch extends DepthFirstSearch {
         do {
             solution = graphSearch(problem);
             limit++;
-        } while (solution == null);
+        } while (solution == null && f);
 
         return solution;
     }
@@ -38,7 +39,7 @@ public class IterativeDeepeningSearch extends DepthFirstSearch {
     protected Solution graphSearch(Problem problem) {
         frontier.clear();
         frontier.add(new Node(problem.getInitialState()));
-
+        int c = 0;
         while (!frontier.isEmpty() && !stopped) {
             Node n = (Node) frontier.poll();
             if (n.getDepth() == limit && problem.isGoal(n.getState())) {
@@ -47,8 +48,15 @@ public class IterativeDeepeningSearch extends DepthFirstSearch {
             List<State> successors = problem.executeActions(n.getState());
             if (n.getDepth() < limit) {
                 addSuccessorsToFrontier(successors, n);
+                if (n.getDepth() == limit-1) {
+                    c+=successors.size();
+                }
             }
             computeStatistics(successors.size());
+        }
+        if (c == 0 && limit != 0) {
+            f = false;
+            stop();
         }
         return null;
     }

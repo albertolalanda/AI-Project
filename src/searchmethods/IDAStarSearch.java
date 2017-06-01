@@ -23,7 +23,7 @@ public class IDAStarSearch extends InformedSearch {
         Solution solution;
         do {
             solution = graphSearch(problem);
-        } while (solution == null);
+        } while (solution == null && statistics.numExpandedNodes < 2000000); // para parar aquando chegar aos 2 milhões de expanded nodes
 
         return solution;
     }
