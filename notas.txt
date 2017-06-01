@@ -1,0 +1,70 @@
+Introdução
+	- Resumo do que se trata o trabalho:
+
+Implementação
+	- Explicar a adaptação do problema para que este seja reconhecido pelos metodos de procura.
+
+	- Explicar no que consiste os diversos metodos de procura e heuristicas.
+
+Resultados
+	- Apresentar o melhor resultado obtido nos metodos de procura não informados (explicacao + grafico ilustrativo)
+	- Apresentar o melhor resultado obtido nos metodos de procura informados com a respetiva heurista admissivel. (explicacao + grafico ilustrativo)
+
+	- Apresentar o pior resultado obtido nos metodos de procura não informados (explicacao + grafico ilustrativo)
+	- Apresentar o pior resultado obtido nos metodos de procura não informados (explicacao + grafico ilustrativo)
+
+Restantes resultados
+	- Listar os restantes resultados e apresentar os respetivos gráficos
+
+Conclusão
+	- Conclusões finais referentes ao projeto
+
+Bibliografia
+	- resources
+
+
+Como o IterativeDeepeningSearch​ explora muitos nós, a partir do problem 2 para verem os
+resultados corretamente têm de alterar os tipos de atributos da classe Statistics para long.
+
+Seguem algumas sugestões relacionadas com o relatório do projeto:
+
+- Algoritmos não informados:
+
+      - não é necessário apresentarem resultados para o Depth Limited Search;
+
+      - Se justificarem bem, não é necessário apresentarem resultados para a Procura Uniforme (porque será? Resposta nos slides...);
+
+- Algoritmos informados:
+
+      - Estudar bem o valor das heurísticas para os diferentes problemas usando o A* (qualidade das soluções e custo da procura);
+
+      - Após o estudo com o A*, usar apenas a que considerarem ser a melhor heurística para estudarem o IDA* e o Beam search e depois comparem os resultados obtidos com o A* e a melhor heurística.
+
+O relatório é para ser escrito em português.
+
+Nota: alguns estudantes não fazem o reset às estatísticas no método search da classe InformedSearch. Se for o caso,devem fazê-lo.
+
+Se já fizeram os testes com os ficheiros da pasta util desatualizados não serão prejudicados na nota do projeto por isso. Refiram isso no relatório.
+O IterativeDeepeningSearch é de facto muito lento porque chega a explorar biliões de nós. Até para o problema 2 é
+provável que obtenham soluções em mais de 30 minutos e só vão até ao limite 10. Para os restantes problemas este método de procura é lentíssimo.
+
+
+Os métodos de procura DepthLimitedSearch e IterativeDeepeningSearch conseguem obter a solução ótima.
+No caso do DepthLimitedSearch ​têm de impor o limite correto para obter a solução ótima.
+Se não a estão a obter pode ser por terem implementado mal os algoritmos ou então não estão a criar bem os sucessores.
+
+Envio o código dos  métodos de procura em anexo. Amanhã estou disponível para tirar duvidas a partir das 14h.
+
+Seguem algumas recomendações relativamente ao projeto, resultantes de dúvidas que me têm sido colocadas:
+
+- Ao contrário do que acontece no Puzzle de 8, não é necessário o problema guardar as ações que é possível aplicar. Estas ações podem ser criadas à medida que se vai verificando que podem ser aplicadas.
+
+- Sugerimos que no método executeActions do problema percorram todas as peças do estado e que verifiquem quais as ações que podem aplicar a cada peça. Por cada ação possível, deve ser criado um sucessor ao qual se vai aplicar a ação.
+
+- Quando geram um sucessor de um estado e lhe associam a ação que o gerou, esta ação deve guardar a posição (de referencia) original da peça que foi movida (a posição que ela tinha no estado antecessor) e não uma referência para a peça. A razão de ser disto não é fácil de explicar por email. Posso depois explicar na aula teórica.
+
+- Quando clonam um estado, têm que clonar de facto as peças que fazem parte da lista de peças do estado (não basta fazerem clone da lista de peças). Caso contrário, as peças do sucessor serão as mesmas peças do estado antecessor e quando alterarem a posição de umas estão a alterar a posição das "outras".
+
+Para testarem se uma heurística é admissível devem testar com o método de procura A*, pois é um método que devolve a solução ótima se a heurística for admissível. Como têm de ter um valor do custo para comparar, testem primeiro com o procura em largura ou uniforme que não utilizam heurísticas e são métodos de procura (não informados) ótimos. O método de procura sôfrega é um método que não é completo nem ótimo, por isso apesar de poderem ter "boas" soluções em termos de custo/tempo não é o método a utilizar para verificar se a heurística é admissível. Depois nas próximas aulas explico isto melhor. Podem ter heurísticas admissíveis e não admissíveis no vosso projeto e comparar os resultados em termos de custo/nós explorados.
+
+Em relação ao relatório devem seguir o template em termos de formatação e devem ter um sumário, uma introdução e uma descrição do estado/problema/operadores/heurísticas implementadas, além de uma secção de resultados com respetiva análise dos mesmos, e por fim uma conclusão. Na introdução podem e devem indicar os métodos de procura que aplicaram ao problema (largura, profundidade, A*, etc.), mas não é necessário descrevê-los pois não fizeram alterações nesta parte.
