@@ -60,7 +60,7 @@ public class MainFrame extends JFrame {
     private void jbInit() throws Exception {
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setTitle("Eight Puzzle");
+        this.setTitle("Monta cargas puzzle");
 
         JPanel contentPane = (JPanel) this.getContentPane();
         contentPane.setLayout(new BorderLayout());
