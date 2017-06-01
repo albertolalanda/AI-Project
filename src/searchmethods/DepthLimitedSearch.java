@@ -8,7 +8,7 @@ public class DepthLimitedSearch extends DepthFirstSearch {
     private int limit;
 
     public DepthLimitedSearch() {
-        this(28);
+        this(38);
     }
 
     public DepthLimitedSearch(int limit) {
