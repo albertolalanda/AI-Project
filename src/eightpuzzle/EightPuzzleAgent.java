@@ -11,6 +11,7 @@ public class EightPuzzleAgent extends Agent<EightPuzzleState>{
     public EightPuzzleAgent(EightPuzzleState environemt) {
         super(environemt);
         initialEnvironment = (EightPuzzleState) environemt.clone();
+        heuristics.add(new HeuristicNull());
         heuristics.add(new HeuristicTileDistance());
         heuristics.add(new HeuristicNumberOfPiecesInTheWay());
         heuristic = heuristics.get(0);

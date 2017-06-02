@@ -1,15 +1,4 @@
-heuristicNull //heuristica vazia
-heuristicaDistance //distancia até ao goal
-heuisticPiecesInFront (on the way) // peças no path
-heuristicPiecesInFrontAndSide // pecas na metade à frente da forklift
-for (GridObject object : gridObjects) {
-	if(object.getObjectValue()!=1){
-		sum += object.getPosition().getY();
-	}
-}
-HeuristicSizeObjectsOnPath // soma o tamanho das peças do caminho
-//same heuristic
-HeuristiOcupiedRightSide // soma as peças a ocupar a parte da direita do board
-HeuristicBetterToTheLeft // heuristica que dá prioridade às peças estarem à esquerda do carro
+
+
 
 ASSUMIR QUE O MÉTODO DE PROCURA NÃO ENCONTRA SOLUCAO A PARTIR DOS 30 minutos de tentativa

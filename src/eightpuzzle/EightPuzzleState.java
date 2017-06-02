@@ -426,6 +426,8 @@ public class EightPuzzleState extends State implements Cloneable {
         return pecas;
     }
 
+    // HEURISTICAS ------------------------------------------------------------
+    
     public double computeTileDistance() {
         double h = 0;
         h = 5 - colunaCarro;
@@ -434,38 +436,97 @@ public class EightPuzzleState extends State implements Cloneable {
     
     public double computeNumberOfPiecesInTheWay() {
        double h = 0;
-       for (int j = colunaCarro; j < matrix.length; j++) {
-           switch (matrix[linhaCarro][j]) {
-               case 2:
-                   h++;
-                   break;
-               case 3:
-                   h++;
-                   break;
-               case 4:
-                   h++;
-                   j++;
-                   break;
-               case 5:
-                   h++;
-                   break;
-               case 6:
-                   h++;
-                   j=j+2;
-                   break;
-               case 7:
-                   h++;
-                   break;
-               case 8:
-                   h++;
-                   j=j+3;
-                   break;
-               case 9:
-                   h++;
-                   break;
+       for (int j = colunaCarro + 1; j < matrix.length; j++) {
+           if (matrix[linhaCarro][j] != 0) {
+               h++;
+               System.out.println(h);
            }
-
        }
        return h;      
     }
+    
+    public double computeNumberOfPiecesInFrontOfTheCar() {
+        double h = 0;
+        for (int i = colunaCarro + 1; i < matrix.length; i++) {
+            for (int j = 0; j < matrix.length; j++) {
+                if (matrix[i][j] != 0) {
+                    h++;
+                }
+            }
+        }
+        return h;
+    }
+    
+    public double computeSizeOfObjectsOnPath(){
+        double h = 0;
+       for (int j = colunaCarro + 1; j < matrix.length; j++) {
+           switch (matrix[linhaCarro][j]) {
+                case 2:
+                    h++;
+                    break;
+                case 3:
+                    h++;
+                    break;
+                case 4:
+                    h=h+2;
+                    break;
+                case 5:
+                    h=h+2;
+                    break;
+                case 6:
+                    h=h+3;
+                    break;
+                case 7:
+                    h=h+3;
+                    break;
+                case 8:
+                    h=h+4;
+                    break;
+                case 9:
+                    h=h+4;
+                    break;
+           }
+       }
+       return h;      
+    }
+    
+    public double computeNumberOfTilesRightSide(){
+        double h = 0;
+        for(int i = 0; i<matrix.length; i++){
+            for(int j = matrix.length/2; j<matrix.length; j++){
+                if (matrix[i][j] > 1) {
+                    h++;
+                }
+            }
+        }
+        return h;
+    }
+    
+    
+    public double computeNumberOfTilesOpositeHeightOfForklift(){ //para usar com o right side
+        double h = 0;
+        int aux = matrix.length/2;
+        if (linhaCarro <= matrix.length/2) {
+            for(int i = 0; i <= aux; i++){
+                for(int j = 0; j<matrix.length; j++){
+                    if (matrix[i][j] > 1) {
+                        h++;
+                    }
+                }
+            }
+        }else{
+            for(int i = aux; i <= matrix.length; i++){
+                for(int j = 0; j<matrix.length; j++){
+                    if (matrix[i][j] > 1) {
+                        h++;
+                    }
+                }
+            }
+        
+        }
+        return h;
+    }
+    
+    
+    
 }

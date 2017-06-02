@@ -68,3 +68,12 @@ Seguem algumas recomendações relativamente ao projeto, resultantes de dúvidas
 Para testarem se uma heurística é admissível devem testar com o método de procura A*, pois é um método que devolve a solução ótima se a heurística for admissível. Como têm de ter um valor do custo para comparar, testem primeiro com o procura em largura ou uniforme que não utilizam heurísticas e são métodos de procura (não informados) ótimos. O método de procura sôfrega é um método que não é completo nem ótimo, por isso apesar de poderem ter "boas" soluções em termos de custo/tempo não é o método a utilizar para verificar se a heurística é admissível. Depois nas próximas aulas explico isto melhor. Podem ter heurísticas admissíveis e não admissíveis no vosso projeto e comparar os resultados em termos de custo/nós explorados.
 
 Em relação ao relatório devem seguir o template em termos de formatação e devem ter um sumário, uma introdução e uma descrição do estado/problema/operadores/heurísticas implementadas, além de uma secção de resultados com respetiva análise dos mesmos, e por fim uma conclusão. Na introdução podem e devem indicar os métodos de procura que aplicaram ao problema (largura, profundidade, A*, etc.), mas não é necessário descrevê-los pois não fizeram alterações nesta parte.
+
+heuristica admicivel ou nao admicivel, porque?
+    o custo no A* tem de ser igual ao do bread e do uniform
+	
+ long tempoIncial = System.nanoTime();
+tempo = System.nanoTime() - tempoIncial;
+public double getTempo() {
+        return (double)tempo/1000000000.0;
+    }
