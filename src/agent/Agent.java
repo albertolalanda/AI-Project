@@ -1,6 +1,7 @@
 package agent;
 
 import java.util.ArrayList;
+import javax.swing.JTable;
 import searchmethods.*;
 
 public class Agent<E extends State> {
@@ -104,4 +105,18 @@ public class Agent<E extends State> {
 
         return sb.toString();
     }
+    
+    public JTable getSearchReportTable() {
+        Object[][] data = {
+                            {solution.getCost()},
+                            {searchMethod.getStatistics().numExpandedNodes},
+                            {searchMethod.getStatistics().maxFrontierSize},
+                            {searchMethod.getStatistics().numGeneratedNodes},
+                          };
+        Object[] columnNames = {"Data"};
+        JTable table = new JTable(data, columnNames);
+
+        return table;
+    }
+    
 }

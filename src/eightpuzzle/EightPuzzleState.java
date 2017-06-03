@@ -421,7 +421,7 @@ public class EightPuzzleState extends State implements Cloneable {
         }
     }
 
-    //[Lalanda]
+    
     public Iterable<Peca> getListaPecas() {
         return pecas;
     }
@@ -439,7 +439,6 @@ public class EightPuzzleState extends State implements Cloneable {
        for (int j = colunaCarro + 1; j < matrix.length; j++) {
            if (matrix[linhaCarro][j] != 0) {
                h++;
-               System.out.println(h);
            }
        }
        return h;      

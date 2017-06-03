@@ -111,6 +111,10 @@ public class MainFrame extends JFrame {
 
         pack();
     }
+    
+    private void initListeners() {
+        
+    }
 
     private void configureTabel(JTable table) {
         puzzleTableModel = new PuzzleTableModel(agent.getEnvironment());
@@ -186,6 +190,7 @@ public class MainFrame extends JFrame {
             public void done() {
                 if (!agent.hasBeenStopped()) {
                     textArea.setText(agent.getSearchReport());
+                    textArea.addKeyListener(new CilpboardKeyAdapter(agent.getSearchReportTable()));
                     if (agent.hasSolution()) {
                         buttonShowSolution.setEnabled(true);
                         buttonSolve.setEnabled(false);

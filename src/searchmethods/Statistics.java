@@ -1,9 +1,9 @@
 package searchmethods;
 
 public class Statistics {
-    public int numExpandedNodes;
-    public int numGeneratedNodes = 1; //due to the initial node
-    public int maxFrontierSize;
+    public long numExpandedNodes;
+    public long numGeneratedNodes = 1; //due to the initial node
+    public long maxFrontierSize;
     
     public void reset(){
         numExpandedNodes = 0;

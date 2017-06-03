@@ -3,16 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/tiago/Documents/NetBeansProjects/ProjetoIAV2/src/eightpuzzle/HeuristicTileDistance.java</file>
-            <file>file:/C:/Users/tiago/Documents/NetBeansProjects/ProjetoIAV2/src/eightpuzzle/EightPuzzleState.java</file>
-            <file>file:/C:/Users/tiago/Documents/NetBeansProjects/ProjetoIAV2/src/eightpuzzle/EightPuzzleListener.java</file>
-            <file>file:/C:/Users/tiago/Documents/NetBeansProjects/ProjetoIAV2/src/eightpuzzle/Posicao.java</file>
-            <file>file:/C:/Users/tiago/Documents/NetBeansProjects/ProjetoIAV2/src/eightpuzzle/ActionRight.java</file>
-            <file>file:/C:/Users/tiago/Documents/NetBeansProjects/ProjetoIAV2/src/agent/Agent.java</file>
-            <file>file:/C:/Users/tiago/Documents/NetBeansProjects/ProjetoIAV2/src/eightpuzzle/Peca.java</file>
-            <file>file:/C:/Users/tiago/Documents/NetBeansProjects/ProjetoIAV2/src/eightpuzzle/EightPuzzleProblem.java</file>
-            <file>file:/C:/Users/tiago/Documents/NetBeansProjects/ProjetoIAV2/src/gui/MainFrame.java</file>
-            <file>file:/C:/Users/tiago/Documents/NetBeansProjects/ProjetoIAV2/src/agent/Action.java</file>
+            <file>file:/C:/Users/tiago/Documents/NetBeansProjects/projetoiaBit/src/eightpuzzle/EightPuzzleState.java</file>
+            <file>file:/C:/Users/tiago/Documents/NetBeansProjects/projetoiaBit/src/searchmethods/DepthFirstSearch.java</file>
+            <file>file:/C:/Users/tiago/Documents/NetBeansProjects/projetoiaBit/src/searchmethods/Statistics.java</file>
+            <file>file:/C:/Users/tiago/Documents/NetBeansProjects/projetoiaBit/src/searchmethods/DepthLimitedSearch.java</file>
+            <file>file:/C:/Users/tiago/Documents/NetBeansProjects/projetoiaBit/src/eightpuzzle/HeuristicNumberOfPiecesInTheWay.java</file>
+            <file>file:/C:/Users/tiago/Documents/NetBeansProjects/projetoiaBit/src/eightpuzzle/HeuristicTileDistance.java</file>
+            <file>file:/C:/Users/tiago/Documents/NetBeansProjects/projetoiaBit/src/eightpuzzle/HeuristicNumberOfTilesInFrontOfCar.java</file>
         </group>
     </open-files>
 </project-private>
