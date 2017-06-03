@@ -107,8 +107,14 @@ public class Agent<E extends State> {
     }
     
     public JTable getSearchReportTable() {
+        double cost;
+        if (solution == null) {
+            cost=0;
+        } else {
+            cost=solution.getCost();
+        }
         Object[][] data = {
-                            {solution.getCost()},
+                            {cost},
                             {searchMethod.getStatistics().numExpandedNodes},
                             {searchMethod.getStatistics().maxFrontierSize},
                             {searchMethod.getStatistics().numGeneratedNodes},
