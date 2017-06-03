@@ -14,6 +14,9 @@ public class EightPuzzleAgent extends Agent<EightPuzzleState>{
         heuristics.add(new HeuristicNull());
         heuristics.add(new HeuristicTileDistance());
         heuristics.add(new HeuristicNumberOfPiecesInTheWay());
+        heuristics.add(new HeuristicSizeOfObjectsInTheWay());
+        heuristics.add(new HeuristicNumberOfTilesInFrontOfCar());
+        heuristics.add(new HeuristicTileDistanceAndNumberOfPiecesInTheWay());
         heuristic = heuristics.get(0);
     }
             

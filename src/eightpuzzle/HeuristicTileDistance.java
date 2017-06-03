@@ -3,6 +3,8 @@ package eightpuzzle;
 import agent.Heuristic;
 
 public class HeuristicTileDistance extends Heuristic<EightPuzzleProblem, EightPuzzleState>{
+    
+    // Heuristica que conta a distancia do carro à porta
 
     public double compute(EightPuzzleState state){
         return state.computeTileDistance();       
@@ -10,6 +12,6 @@ public class HeuristicTileDistance extends Heuristic<EightPuzzleProblem, EightPu
     
     @Override
     public String toString(){
-        return "Tiles distance to final position";
+        return "Heuristic tiles distance to final position";
     }
 }

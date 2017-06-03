@@ -33,6 +33,7 @@ Seguem algumas sugestões relacionadas com o relatório do projeto:
       - não é necessário apresentarem resultados para o Depth Limited Search;
 
       - Se justificarem bem, não é necessário apresentarem resultados para a Procura Uniforme (porque será? Resposta nos slides...);
+			RESPOSTA PORQUE é IGUAL ao Primeiro search method
 
 - Algoritmos informados:
 
@@ -42,9 +43,6 @@ Seguem algumas sugestões relacionadas com o relatório do projeto:
 
 O relatório é para ser escrito em português.
 
-Nota: alguns estudantes não fazem o reset às estatísticas no método search da classe InformedSearch. Se for o caso,devem fazê-lo.
-
-Se já fizeram os testes com os ficheiros da pasta util desatualizados não serão prejudicados na nota do projeto por isso. Refiram isso no relatório.
 O IterativeDeepeningSearch é de facto muito lento porque chega a explorar biliões de nós. Até para o problema 2 é
 provável que obtenham soluções em mais de 30 minutos e só vão até ao limite 10. Para os restantes problemas este método de procura é lentíssimo.
 
@@ -71,7 +69,7 @@ Em relação ao relatório devem seguir o template em termos de formatação e d
 
 heuristica admicivel ou nao admicivel, porque?
     o custo no A* tem de ser igual ao do bread e do uniform
-	
+
  long tempoIncial = System.nanoTime();
 tempo = System.nanoTime() - tempoIncial;
 public double getTempo() {

@@ -490,6 +490,9 @@ public class EightPuzzleState extends State implements Cloneable {
        return h;      
     }
     
+    
+    // heuristicas 
+    /*
     public double computeNumberOfTilesRightSide(){
         double h = 0;
         for(int i = 0; i<matrix.length; i++){
@@ -526,7 +529,7 @@ public class EightPuzzleState extends State implements Cloneable {
         }
         return h;
     }
-    
+    */
     
     
 }
