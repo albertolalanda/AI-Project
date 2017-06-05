@@ -2,9 +2,7 @@ package agent;
 
 
 public abstract class Heuristic <P extends Problem, S extends State>{
-    /**
-     * Só os metodos informados é que usam heuristicas
-     */
+
     protected P problem;
 
     public Heuristic(){

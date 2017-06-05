@@ -9,8 +9,8 @@ public class EightPuzzleState extends State implements Cloneable {
 
     private int[][] matrix;
 
-    private int colunaCarro;  //Mas a linha do carro é sempre a mesma a coluna é que muda...
-    private int linhaCarro;  //Mas a linha do carro é sempre a mesma a coluna é que muda...
+    private int colunaCarro;  
+    private int linhaCarro;  
     private ArrayList<Peca> pecas;
     private ArrayList<Posicao> notStartingPos;
     private boolean found = false;
@@ -20,7 +20,6 @@ public class EightPuzzleState extends State implements Cloneable {
         this.pecas = new ArrayList<Peca>();
         this.notStartingPos = new ArrayList<Posicao>();
         notStartingPos.add(new Posicao(-1, -1));
-        //TODO: (NOTA) Guardar as peças para poder retornar para a class EightPuzzelProblem
 
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix.length; j++) {
@@ -138,7 +137,6 @@ public class EightPuzzleState extends State implements Cloneable {
         return colunaCarro;
     }
 
-    //NOTE: adicionei este getter para poder no isGoal verificar o estado da matrix
     public int[][] getMatrix() {
         return matrix;
     }
@@ -148,7 +146,7 @@ public class EightPuzzleState extends State implements Cloneable {
         firePuzzleChanged(null);
     }
 
-    //TODO: (NOTA) Que peca é que vai perguntar? estes metodos canMove
+    
     public boolean canMoveRight(Peca peca) {
         //System.out.println("Can Right(" + peca.getLinha() + "," + peca.getColuna() + ")");
         int linha = peca.getLinha();
@@ -225,11 +223,7 @@ public class EightPuzzleState extends State implements Cloneable {
         return isValidPosition(linha - 1, coluna) && isValidMove(linha - 1, coluna, peca);
     }
 
-    /*
-     * Nos metodos move[Down|Up|Right|Left] não há validação(canMove), já foi feita na class EightPuzzelProblem no executeActions().
-     * Saber que peça quer mover e actualizar na matriz
-     */
-    // modificar a peca na matriz e atualizar na lista de pecas
+   
     public void moveUp(Peca peca) {
         //System.out.println("Moving Up(" + peca.getLinha() + "," + peca.getColuna() + ")");
 
@@ -351,7 +345,6 @@ public class EightPuzzleState extends State implements Cloneable {
         return matrix[line][column];
     }
 
-    //TODO: (NOTA) Atenção que peças não podem sobrepor-se
     public boolean isValidPosition(int line, int column) {
         return (line >= 0 && line < matrix.length && column >= 0 && column < matrix[0].length);
     }
@@ -400,7 +393,7 @@ public class EightPuzzleState extends State implements Cloneable {
     public Object clone() {
         return new EightPuzzleState(matrix);
     }
-    //Listeners
+
     private transient ArrayList<EightPuzzleListener> listeners = new ArrayList<EightPuzzleListener>(3);
 
     public synchronized void removeListener(EightPuzzleListener l) {

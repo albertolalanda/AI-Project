@@ -32,9 +32,9 @@ public class PuzzleTileCellRenderer extends JLabel implements TableCellRenderer 
         }
         int valor = ((Integer) value).intValue();
         
-        //As pecas pares acima do 4, 6 e 8 as pecas estao na msm linha!
+
         Position found = null;
-        for (Position position : listaPending) { //Percorre a lista das posicoes marcadas cujos blocos ainda nao terminaram
+        for (Position position : listaPending) {
             if(position.equals(row, column))
                 found = position;
         }

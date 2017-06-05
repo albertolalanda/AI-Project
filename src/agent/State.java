@@ -2,9 +2,6 @@ package agent;
 
 public abstract class State{
 
-    /**
-     * Action that generated this state.
-     */
     protected Action action;
 
     public State(){

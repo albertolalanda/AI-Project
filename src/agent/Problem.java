@@ -13,8 +13,7 @@ public abstract class Problem <S extends State>{
         this.initialState = initialState;
         this.actions = actions;
     }
-    
-    //abstracto porq depende do problema problemas diferentes..
+
     public abstract boolean isGoal(S state);
     
     public abstract List<S> executeActions(S state);

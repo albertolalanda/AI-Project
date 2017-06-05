@@ -7,9 +7,7 @@ package eightpuzzle;
 
 
 class Posicao {
-    //TODO: Guardar a linha e coluna
     
-    //[Lalanda]
     private int linha;
     private int coluna;
 

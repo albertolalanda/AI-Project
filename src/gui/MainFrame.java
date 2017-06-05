@@ -118,7 +118,7 @@ public class MainFrame extends JFrame {
 
     private void configureTabel(JTable table) {
         puzzleTableModel = new PuzzleTableModel(agent.getEnvironment());
-        table.setEnabled(false); // remover onclick da tabela. remove qualquer input do user na tabela
+        table.setEnabled(false);
         tablePuzzle.setRowMargin(0);
         tablePuzzle.getColumnModel().setColumnMargin(0);
         tablePuzzle.setModel(puzzleTableModel);
@@ -155,9 +155,9 @@ public class MainFrame extends JFrame {
         buttonShowSolution.setEnabled(false);
         buttonReset.setEnabled(false);
         textArea.setText("");
-        comboBoxHeuristics.setEnabled(index > 4); //Informed serch methods
-        textFieldSearchParameter.setEnabled(index == 3 || index == 7); // limited depth or beam search
-        labelSearchParameter.setEnabled(index == 3 || index == 7); // limited depth or beam search
+        comboBoxHeuristics.setEnabled(index > 4);
+        textFieldSearchParameter.setEnabled(index == 3 || index == 7);
+        labelSearchParameter.setEnabled(index == 3 || index == 7);
     }
 
     public void comboBoxHeuristics_ActionPerformed(ActionEvent e) {

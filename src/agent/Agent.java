@@ -7,13 +7,13 @@ import searchmethods.*;
 public class Agent<E extends State> {
 
     protected E environment;
-    protected ArrayList<SearchMethod> searchMethods;//So posso ter 1 metodo de procura
+    protected ArrayList<SearchMethod> searchMethods;
     protected SearchMethod searchMethod;
     protected ArrayList<Heuristic> heuristics;
     protected Heuristic heuristic;
-    protected Solution solution; //solucao para o problema
+    protected Solution solution; 
                                     
-    public Agent(E environment) {//estado inicial
+    public Agent(E environment) {
         this.environment = environment;
         searchMethods = new ArrayList<SearchMethod>();
         searchMethods.add(new BreadthFirstSearch());
@@ -30,7 +30,7 @@ public class Agent<E extends State> {
     }
 
     public Solution solveProblem(Problem problem) {
-        if (heuristic != null) {// metodo de procura informada
+        if (heuristic != null) {
             problem.setHeuristic(heuristic);
             heuristic.setProblem(problem);
         }
