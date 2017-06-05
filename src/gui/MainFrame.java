@@ -193,7 +193,7 @@ public class MainFrame extends JFrame {
                     textArea.addKeyListener(new CilpboardKeyAdapter(agent.getSearchReportTable()));
                     if (agent.hasSolution()) {
                         buttonShowSolution.setEnabled(true);
-                        buttonSolve.setEnabled(false);
+                        //buttonSolve.setEnabled(false);
                     }
                 }
                 buttonStop.setEnabled(false);
